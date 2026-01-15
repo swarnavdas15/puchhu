@@ -44,3 +44,8 @@ html{
 .read-the-docs {
   color: #888;
 }
+
+.envelop-text p {
+  padding-left: clamp(12px, 4vw, 28px);
+  padding-right: clamp(12px, 4vw, 28px);
+}

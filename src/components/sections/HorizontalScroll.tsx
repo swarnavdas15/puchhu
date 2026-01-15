@@ -1,16 +1,18 @@
 import React, { useEffect, useRef } from "react";
 
 const images = [
-  "https://images.unsplash.com/photo-1523437237164-d442d57cc3c9",
-  "https://images.unsplash.com/photo-1421930866250-aa0594cea05c",
-  "https://images.unsplash.com/photo-1536152470836-b943b246224c",
-  "https://images.unsplash.com/photo-1491824989090-cc2d0b57eb0d",
-  "https://images.unsplash.com/photo-1518717202715-9fa9d099f58a",
-  "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7",
-  "https://images.unsplash.com/photo-1459213599465-03ab6a4d5931",
-  "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab",
-  "https://images.unsplash.com/photo-1453791052107-5c843da62d97",
-  "https://images.unsplash.com/photo-1471978445661-ad6ec1f5ba50"
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.42.09.jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.15%20(1).jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.15.jpeg",
+
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.17%20(1).jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.17.jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.18%20(1).jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.18%20(2).jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.18.jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.19%20(1).jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.19%20(2).jpeg",
+  "https://raw.githubusercontent.com/swarnavdas15/personal-doc/refs/heads/main/document/WhatsApp%20Image%202026-01-15%20at%2016.39.19.jpeg",
 ].map(
   (url) =>
     `${url}?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=600&q=80`
