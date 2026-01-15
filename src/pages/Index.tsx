@@ -16,7 +16,7 @@ const Index = () => {
         <HeroSection />
         <RealizationSection />
         <GiftTimelineSection />
-       
+        <HorizontalScroll />
         <ApologySection />
         <ConfessionSection />
         <CommitmentSection />

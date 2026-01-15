@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
-const images: string[] = [
+const images = [
   "https://images.unsplash.com/photo-1523437237164-d442d57cc3c9",
   "https://images.unsplash.com/photo-1421930866250-aa0594cea05c",
   "https://images.unsplash.com/photo-1536152470836-b943b246224c",
@@ -10,110 +10,140 @@ const images: string[] = [
   "https://images.unsplash.com/photo-1459213599465-03ab6a4d5931",
   "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab",
   "https://images.unsplash.com/photo-1453791052107-5c843da62d97",
-  "https://images.unsplash.com/photo-1471978445661-ad6ec1f5ba50",
-  "https://images.unsplash.com/photo-1523978591478-c753949ff840",
-  "https://images.unsplash.com/photo-1489549132488-d00b7eee80f1",
-  "https://images.unsplash.com/photo-1559827291-72ee739d0d9a",
-  "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
-  "https://images.unsplash.com/photo-1495312040802-a929cd14a6ab",
-  "https://images.unsplash.com/photo-1465147264724-326b45c3c59b",
-  "https://images.unsplash.com/photo-1584148721201-b6432e0d5106"
+  "https://images.unsplash.com/photo-1471978445661-ad6ec1f5ba50"
 ].map(
   (url) =>
-    `${url}?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&w=300&q=80`
+    `${url}?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&w=600&q=80`
 );
 
 const HorizontalScroll: React.FC = () => {
-  return (
-    <>
-      <h1>Horizontal Scroll</h1>
+  const trackRef = useRef<HTMLUListElement | null>(null);
 
-      <div className="track-wrapper">
-        <ul className="track">
-          {images.map((src, index) => (
-            <li className="track__item" key={index}>
-              <img src={src} alt={`img-${index}`} />
+  useEffect(() => {
+  const track = trackRef.current;
+  if (!track) return;
+
+  let current = 0;
+  let target = 0;
+  let rafId: number;
+
+  const lerp = (start: number, end: number, amt: number) =>
+    start + (end - start) * amt;
+
+  const animate = () => {
+    current = lerp(current, target, 0.05); // smoothness factor
+    track.scrollLeft = current;
+
+    if (Math.abs(current - target) > 0.5) {
+      rafId = requestAnimationFrame(animate);
+    }
+  };
+
+  const onScroll = () => {
+    const rect = track.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    if (rect.top > vh || rect.bottom < 0) return;
+
+    const progress =
+      1 - Math.min(Math.max(rect.top / vh, 0), 1);
+
+    const maxScroll =
+      track.scrollWidth - track.clientWidth;
+
+    target = progress * maxScroll;
+
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(animate);
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+    cancelAnimationFrame(rafId);
+  };
+}, []);
+
+
+  return (
+    <section className="hs-section">
+      <div className="hs-track-wrapper">
+        <ul className="hs-track" ref={trackRef}>
+          {images.map((src, i) => (
+            <li className="hs-item" key={i}>
+              <img src={src} alt="" />
             </li>
           ))}
         </ul>
       </div>
 
       <style>{`
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
+        .hs-section {
+          height: 60vh;
+          display: flex;
+          align-items: center;
+          width: 100%;
         }
 
-        body {
-          background: #e5e7eb;
-          display: grid;
-          place-items: center;
-          min-height: 100vh;
-          font-family: system-ui, sans-serif;
-        }
-
-        .track-wrapper {
-          width: 80%;
+        .hs-track-wrapper {
+          width: 100%;
           overflow: hidden;
+
           -webkit-mask:
-            linear-gradient(90deg, transparent 0, black 15% 85%, transparent),
-            linear-gradient(0deg, black, black),
-            linear-gradient(0deg, black, black);
-          -webkit-mask-size:
-            100% calc(100% - 2rem),
-            100% 1rem,
-            100% 1rem;
-          -webkit-mask-position:
-            0 50%,
-            50% 0,
-            50% 100%;
-          -webkit-mask-repeat: no-repeat;
+            linear-gradient(
+              90deg,
+              transparent 0,
+              black 15% 85%,
+              transparent
+            ) 0 50% / 100% calc(100% - 3rem) no-repeat,
+            linear-gradient(0deg, black, black) 50% 0 / 100% 1.5rem no-repeat,
+            linear-gradient(0deg, black, black) 50% 100% / 100% 1.5rem no-repeat;
         }
 
-        .track {
-          --size: clamp(200px, 40vmin, 50rem);
+        .hs-track {
+          --size: clamp(420px, 60vmin, 1000px);
+
           height: var(--size);
           display: flex;
-          gap: 1rem;
-          padding: 1rem 33%;
+          gap: 1.5rem;
           list-style: none;
           margin: 0;
+          padding: 2.5rem 42%;
+
           overflow-x: auto;
           scroll-snap-type: x mandatory;
+          scrollbar-width: none;
 
           -webkit-mask:
-            radial-gradient(#0000 0 30%, #000 30.5%) 50%
-              calc(var(--size) * 0.5) / 300% 100%,
-            linear-gradient(0deg, black, black) 50% 0 / 100% 1rem,
-            linear-gradient(0deg, black, black) 50% 100% / 100% 1rem;
-          -webkit-mask-repeat: no-repeat;
+            radial-gradient(#0000 0 30%, #000 30.5%)
+              50% calc(var(--size) * 0.5) / 300% 100%,
+            linear-gradient(0deg, black, black)
+              50% 0 / 100% 1.5rem no-repeat,
+            linear-gradient(0deg, black, black)
+              50% 100% / 100% 1.5rem no-repeat;
         }
 
-        .track__item {
+        .hs-track::-webkit-scrollbar {
+          display: none;
+        }
+
+        .hs-item {
           height: 100%;
           aspect-ratio: 1;
           scroll-snap-align: center;
-          background: #ef4444;
+          background: hsl(0 80% 50%);
+          flex: 0 0 auto;
         }
 
-        img {
+        .hs-item img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-        }
-
-        h1 {
-          position: fixed;
-          bottom: 1rem;
-          right: 1rem;
-          margin: 0;
-          opacity: 0.5;
-          font-size: 1rem;
+          display: block;
         }
       `}</style>
-    </>
+    </section>
   );
 };
 
