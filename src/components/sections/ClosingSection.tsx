@@ -7,7 +7,7 @@ const ClosingSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Editable values
-  const partnerName = "My Love";
+  const partnerName = "My Puchhu";
   const currentDate = new Date().toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 

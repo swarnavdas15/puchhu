@@ -1,55 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body>
-  <div class="bg-slate-500 grid place-content-center min-h-screen">
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For You — A Letter of Love and Apology</title>
+    <meta name="description" content="A personal expression of love, accountability, and renewed commitment." />
+    <meta name="author" content="With Love" />
 
-    <div class="relative bg-black w-[400px] sm:w-[550px] group transition-all duration-700 aspect-video flex items-center justify-center ove">
+    <meta property="og:title" content="For You — A Letter of Love" />
+    <meta property="og:description" content="A personal expression of love, accountability, and renewed commitment." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-      <!-- letter -->
-      <div class="transition-all pt-3 justify-start duration-300 group-hover:duration-1000  w-full h-full absolute group-hover:-translate-y-16 bg-white text-center">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-        <!-- clip left -->
-        <!-- bg-cyan-200 [clip-path:polygon(0_25%,100%_80%,100%_100%,0_100%)]  -->
-        <div class="w-1/2 h-full float-left [shape-outside:polygon(0_25%,100%_80%,100%_100%,0_100%)]"></div>
-
-        <!-- clip right -->
-        <!-- bg-cyan-200 [clip-path:polygon(0_80%,100%_25%,100%_100%,0_100%)]  -->
-        <div class="w-1/2 h-full float-right [shape-outside:polygon(0_80%,100%_25%,100%_100%,0_100%)]"></div>
-
-        <!-- letter contents -->
-        <p class="text-xl sm:text-2xl font-semibold text-gray-500 font-serif ">
-          Thank You
-        </p>
-        <p class="px-10 text-[10px] sm:text-[12px] text-gray-700">
-          Lorem ipsum dolor sit amet consectetur adi pisi elit. Sed optio fuga inventore, illo soluta et cupiditate nemo quidem veniam repellendus voluptatem corporis.
-        </p>
-         <button>
-          <span class="inline-block mt-4 px-4 py-2 bg-rose-500 text-slate-100 rounded-full text-sm hover:bg-rose-600 transition-colors duration-300"><a href="/appology.html">Read More</a> </span>
-         </button>
-      </div>
-
-      <!-- button/seal -->
-      <button type="button" class="seal bg-rose-500 text-slate-100 size-10 aspect-square rounded-full z-40 text-[0.7rem] grid place-content-center [clip-path:polygon(50%_0%,_80%_10%,_100%_35%,_100%_70%,_80%_90%,_50%_100%,_20%_90%,_0%_70%,_0%_35%,_20%_10%)] group-hover:opacity-0 transition-all duration-1000 group-hover:scale-0 group-hover:rotate-180 border-4 border-rose-900">open</button>
-
-      <!-- envelope - top -->
-      <div class="w-full h-full transition-all duration-1000 group-hover:duration-100 bg-neutral-800 absolute group-hover:[clip-path:polygon(50%_0%,_100%_0,_0_0)] [clip-path:polygon(50%_50%,_100%_0,_0_0)]"></div>
-
-      <!-- envelope - left -->
-      <div class="transition-all duration-700 absolute w-full h-full bg-neutral-900 [clip-path:polygon(50%_50%,_0_0,_0_100%)] X-opacity-70"></div>
-
-      <!-- envelope - right -->
-      <div class="transition-all duration-700 absolute w-full h-full bg-neutral-800 [clip-path:polygon(50%_50%,_100%_0,_100%_100%)] X-opacity-70"></div>
-      
-      <!-- envelope - bottom -->
-      <div class="transition-all duration-700 absolute w-full h-full bg-neutral-900 [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] X-opacity-70"></div>
-    </div>
-</div>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
