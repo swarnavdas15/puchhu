@@ -28,64 +28,36 @@ const Envelop = () => {
       >
         {/* LETTER */}
         <div
-           className={`
-    absolute inset-0
-    bg-white text-center
-    overflow-hidden
-    pt-3 sm:pt-5
-    max-h-[85%] sm:max-h-full
-    transition-all duration-300
-    group-hover:duration-1000
-    open-letter:duration-1000
-    group-hover:-translate-y-16
-    open-letter:-translate-y-16
-    sm:group-hover:-translate-y-16
-    sm:open-letter:-translate-y-16
-  `}
-        >
-          {/* shape helpers */}
-          <div className="w-1/2 h-full float-left [shape-outside:polygon(0_25%,100%_80%,100%_100%,0_100%)]" />
-          <div className="w-1/2 h-full float-right [shape-outside:polygon(0_80%,100%_25%,100%_100%,0_100%)]" />
+          className={`
+            absolute inset-0
+            bg-white text-center
+            pt-4 pb-6
 
-          {/* CONTENT */}
-          <div
-             className={`
-    transition-all duration-500 delay-200
-    opacity-100 visible
-    sm:opacity-0 sm:invisible
-    sm:group-hover:opacity-100 sm:group-hover:visible
-    ${isOpen ? "sm:opacity-100 sm:visible" : ""}
-  `}
-          >
-            <p className="text-sm sm:text-xl md:text-2xl font-semibold text-gray-500 font-serif px-2">
+            /* mobile */
+            overflow-y-auto
+
+            /* desktop */
+            sm:overflow-hidden
+
+            transition-all duration-300
+            group-hover:-translate-y-14
+            open-letter:-translate-y-14
+            sm:group-hover:-translate-y-16
+            sm:open-letter:-translate-y-16
+          `}
+        >
+          {/* ================= DESKTOP CONTENT ================= */}
+          <div className="hidden sm:block">
+            {/* shape helpers (desktop only) */}
+            <div className="w-1/2 h-full float-left [shape-outside:polygon(0_25%,100%_80%,100%_100%,0_100%)]" />
+            <div className="w-1/2 h-full float-right [shape-outside:polygon(0_80%,100%_25%,100%_100%,0_100%)]" />
+
+            <p className="text-xxl md:text-4xl font-semibold text-gray-500 font-serif px-2">
               Thank you for reading so far…
             </p>
 
-            {/* MOBILE-SAFE TEXT WRAPPER */}
-            <div
-              className="
-                mx-auto
-                w-full
-                max-w-[92%]
-                sm:max-w-[85%]
-                md:max-w-[80%]
-                px-4
-                sm:px-[clamp(14px,4vw,30px)]
-                mt-3
-              "
-            >
-              <p
-                className="
-                  text-[11px]
-                  sm:text-[12px]
-                  md:text-sm
-                  text-gray-700
-                  leading-[1.55]
-                  sm:leading-relaxed
-                  text-center
-                  break-words
-                "
-              >
+            <div className="mx-auto max-w-[72%] px-6 mt-5">
+              <p className="text-sm text-gray-700 leading-relaxed text-center">
                 This letter is just a small token of my appreciation to Puchuu
                 for everything you have done. Your love, support, and
                 understanding have meant the world to me. I hope this letter
@@ -94,22 +66,33 @@ const Envelop = () => {
                 lost.
               </p>
             </div>
-         {/* MOBILE READ MORE */}
-<div className="hidden sm:block mt-4">
-  <button onClick={handleReadMore}>
-    <span className="px-4 py-2 bg-rose-500 text-white rounded-full text-xs">
-      Read More
-    </span>
-  </button>
-</div>
-{/* DESKTOP READ MORE */}
-<div className="visible sm:hidden mt-1">
-  <button onClick={handleReadMore}>
-    <span className="px-4 py-1 bg-rose-500 text-white rounded-full text-sm hover:bg-rose-600 transition">
-      Read More
-    </span>
-  </button>
-</div>
+
+            <div className="mt-4">
+              <button onClick={handleReadMore}>
+                <span className="px-4 py-2 bg-rose-500 text-white rounded-full text-sm hover:bg-rose-600 transition">
+                  Read More
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* ================= MOBILE CONTENT ================= */}
+          <div className="block sm:hidden px-6 text-center">
+            <p className="text-base font-semibold text-gray-500 font-serif">
+              Thank you for reading so far…
+            </p>
+
+            <p className="mt-3 text-[10px] text-gray-700 leading-relaxed px-1">
+              Puchuu !  I dont have Wealth like Shah Jahan but a little gesture of applogy I crafted for you , Kindly accept it and Forgive  this Garib Shah Jahan ...
+            </p>
+
+            <div className="mt-4">
+              <button onClick={handleReadMore}>
+                <span className="px-4 py-1 bg-rose-500 text-white rounded-full text-sm">
+                  Read More
+                </span>
+              </button>
+            </div>
           </div>
         </div>
 
