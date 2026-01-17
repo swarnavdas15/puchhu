@@ -52,12 +52,12 @@ const Envelop = () => {
             <div className="w-1/2 h-full float-left [shape-outside:polygon(0_25%,100%_80%,100%_100%,0_100%)]" />
             <div className="w-1/2 h-full float-right [shape-outside:polygon(0_80%,100%_25%,100%_100%,0_100%)]" />
 
-            <p className="text-xxl md:text-4xl font-medium text-gray-500 font-msMadi px-2">
+            <p className="text-xl md:text-4xl font-medium text-gray-500 font-msMadi px-2">
               Thank you for reading so far…
             </p>
 
-            <div className="mx-auto max-w-[72%] px-6 mt-5">
-              <p className="text-sm font-msMadi text-gray-700 leading-relaxed text-center">
+            <div className="mx-auto max-w-[72%] px-6 mt-3">
+              <p className="text-lg  font-msMadi text-gray-700 leading-relaxed text-center">
                 This letter is just a small token of my appreciation to Puchuu
                 for everything you have done. Your love, support, and
                 understanding have meant the world to me. I hope this letter
