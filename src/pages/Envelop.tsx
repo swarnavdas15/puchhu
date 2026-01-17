@@ -52,12 +52,12 @@ const Envelop = () => {
             <div className="w-1/2 h-full float-left [shape-outside:polygon(0_25%,100%_80%,100%_100%,0_100%)]" />
             <div className="w-1/2 h-full float-right [shape-outside:polygon(0_80%,100%_25%,100%_100%,0_100%)]" />
 
-            <p className="text-xxl md:text-4xl font-semibold text-gray-500 font-serif px-2">
+            <p className="text-xxl md:text-4xl font-medium text-gray-500 font-msMadi px-2">
               Thank you for reading so far…
             </p>
 
             <div className="mx-auto max-w-[72%] px-6 mt-5">
-              <p className="text-sm text-gray-700 leading-relaxed text-center">
+              <p className="text-sm font-msMadi text-gray-700 leading-relaxed text-center">
                 This letter is just a small token of my appreciation to Puchuu
                 for everything you have done. Your love, support, and
                 understanding have meant the world to me. I hope this letter
@@ -78,11 +78,11 @@ const Envelop = () => {
 
           {/* ================= MOBILE CONTENT ================= */}
           <div className="block sm:hidden px-6 text-center">
-            <p className="text-base font-semibold text-gray-500 font-serif">
+            <p className="text-base font-semibold text-gray-500 font-msMadi">
               Thank you for reading so far…
             </p>
 
-            <p className="mt-3 text-[10px] text-gray-700 leading-relaxed px-1">
+            <p className="mt-3 font-msMadi text-[10px] text-gray-700 leading-relaxed px-1">
               Puchuu !  I dont have Wealth like Shah Jahan but a little gesture of applogy I crafted for you , Kindly accept it and Forgive  this Garib Shah Jahan ...
             </p>
 

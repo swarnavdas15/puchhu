@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
+         msMadi: ['"Ms Madi"', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",
